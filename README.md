@@ -10,10 +10,10 @@ Based and maintained from Citadel Station.
 
 [![Percentage of issues still open](http://isitmaintained.com/badge/open/quotefox/Hyper-Station-13.svg)](http://isitmaintained.com/project/quotefox/Hyper-Station-13 "Percentage of issues still open") [![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/quotefox/Hyper-Station-13.svg)](http://isitmaintained.com/project/quotefox/Hyper-Station-13 "Average time to resolve an issue")
 
-**Hyper Station Information**  
-**Website:** http://hyperstation13.com  
-**Code:** https://github.com/quotefox/Hyper-Station-13  
-**Discord:**  [Here](https://discord.gg/PCtX2fH).  
+**Hyper Station 2 Information**  
+**Website:** NONE
+**Code:** https://github.com/WolvesAndOwls/Hyper-2-Remastered
+**Discord:**  NONE  
 
 **Upstream Information**  
 **/tg/ Station**  
