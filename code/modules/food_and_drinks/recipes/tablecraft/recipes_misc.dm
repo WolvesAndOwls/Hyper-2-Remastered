@@ -31,6 +31,15 @@
 	result = /obj/item/reagent_containers/food/snacks/chococoin
 	subcategory = CAT_MISCFOOD
 
+/datum/crafting_recipe/food/choccogun
+	name = "Choco gun"
+	reqs = list(
+		/datum/reagent/iron = 1,
+		/obj/item/reagent_containers/food/snacks/chocolatebar = 1,
+	)
+	result = /obj/item/reagent_containers/food/snacks/choccogun
+	subcategory = CAT_MISCFOOD
+
 /datum/crafting_recipe/food/fudgedice
 	name = "Fudge dice"
 	reqs = list(
@@ -47,15 +56,6 @@
 		/obj/item/reagent_containers/food/snacks/chocolatebar = 1,
 	)
 	result = /obj/item/reagent_containers/food/snacks/chocoorange
-	subcategory = CAT_MISCFOOD
-
-/datum/crafting_recipe/food/choccogun
-	name = "Choco gun"
-	reqs = list(
-		/datum/reagent/iron = 1,
-		/obj/item/reagent_containers/food/snacks/chocolatebar = 1,
-	)
-	result = /obj/item/reagent_containers/food/snacks/choccogun
 	subcategory = CAT_MISCFOOD
 
 /datum/crafting_recipe/food/loadedbakedpotato

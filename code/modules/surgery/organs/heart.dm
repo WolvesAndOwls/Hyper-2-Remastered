@@ -221,6 +221,26 @@ obj/item/organ/heart/cybernetic/upgraded/on_life()
 	addtimer(VARSET_CALLBACK(src, dose_available, TRUE), 5 MINUTES)
 	ramount = 0
 
+/obj/item/organ/heart/ashlizard/alpha
+	name = "alpha ashwalker heart"
+	desc = "An extremely large heart that seems to have multiple extra chambers, it constantly produces a concoction of chemicals."
+	icon_state = "heart-c-u"
+	maxHealth = 5 * STANDARD_ORGAN_THRESHOLD
+
+	var/dose_available_ash = TRUE
+	var/rid_ash = /datum/reagent/medicine/omnizine/godblood
+	var/ramount_ash = 50
+
+/obj/item/organ/heart/ashlizard_alpha/on_life(dose_available_ash, rid_ash, ramount_ash)
+	. = ..()
+	if(dose_available_ash && owner.health <= owner.crit_threshold && !owner.reagents.has_reagent(rid_ash))
+		owner.reagents.add_reagent(rid_ash, ramount_ash)
+
+/obj/item/organ/heart/ashlizard/alpha/proc/used_dose()
+	. = ..()
+	addtimer(VARSET_CALLBACK(src, dose_available_ash, TRUE), 3 MINUTES)
+	ramount_ash = 0
+
 /obj/item/organ/heart/ipc
 	name = "IPC heart"
 	desc = "An electronic pump that regulates hydraulic functions, they have an auto-restart after EMPs."

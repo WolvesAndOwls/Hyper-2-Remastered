@@ -152,6 +152,8 @@
 #define TRAIT_NODROP            "nodrop"
 
 //roundstart traits
+#define TRAIT_RADIOTROPIC_GROWTH "radiotropic_growth"
+#define TRAIT_RADIOTROPIC_SHRINK "radiotropic_shrink"
 #define TRAIT_ALCOHOL_TOLERANCE	"alcohol_tolerance"
 #define TRAIT_AGEUSIA			"ageusia"
 #define TRAIT_HEAVY_SLEEPER		"heavy_sleeper"

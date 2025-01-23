@@ -113,11 +113,11 @@
 	light_burnheal = 0.2
 	light_toxheal = 0.7
 
-
 /datum/species/pod/tree
 	id = "treeperson" //Living tree, much more durable, heals faster.
 	limbs_id = "pod"
 	species_traits = list(EYECOLOR,HAIR,FACEHAIR,LIPS,MUTCOLORS,WINGCOLOR)
+	inherent_traits = list(TRAIT_RESISTCOLD,TRAIT_RESISTLOWPRESSURE,TRAIT_RESISTHIGHPRESSURE,TRAIT_RADIMMUNE,TRAIT_NOBREATH)
 	mutant_bodyparts = list("mam_tail", "mam_ears", "mam_body_markings", "mam_snouts", "taur", "legs")
 	default_features = list("mcolor" = "FFF","mcolor2" = "FFF","mcolor3" = "FFF", "mam_snouts" = "Husky", "mam_tail" = "Husky", "mam_ears" = "Husky", "mam_body_markings" = "Husky", "taur" = "None", "legs" = "Normal Legs")
 	light_nutrition_gain_factor = 10
@@ -126,6 +126,5 @@
 	light_toxheal = 5
 	light_oxyheal = 5
 	armor = 50 //Hard skin
-	brutemod = 0.6
+	brutemod = 0.4 //Hard to damage with conventional methods
 	burnmod = 1.1 //burns easier, but still less than normal podpeople
-

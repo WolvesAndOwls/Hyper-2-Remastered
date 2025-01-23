@@ -1,6 +1,6 @@
 //I am not a coder. Please fucking tear apart my code, and insult me for how awful I am at coding. Please and thank you. -Dahlular
 //alright bet -BoxBoy
-var/const/RESIZE_MACRO = 6
+var/const/RESIZE_MACRO = 120
 var/const/RESIZE_HUGE = 4
 var/const/RESIZE_BIG = 2
 var/const/RESIZE_NORMAL = 1
@@ -50,7 +50,7 @@ mob/living/get_effective_size()
 	src.update_mobsize()
 	//Going to change the health and speed values too
 	src.remove_movespeed_modifier(MOVESPEED_ID_SIZE)
-	src.add_movespeed_modifier(MOVESPEED_ID_SIZE, multiplicative_slowdown = (abs(size_multiplier - 1) * 0.4 ))
+	src.add_movespeed_modifier(MOVESPEED_ID_SIZE, multiplicative_slowdown = (abs(size_multiplier - 2) * 0.1 ))
 	var/healthmod_old = ((previous_size * 75) - 75) //Get the old value to see what we must change.
 	var/healthmod_new = ((size_multiplier * 75) - 75) //A size of one would be zero. Big boys get health, small ones lose health.
 	var/healthchange = healthmod_new - healthmod_old //Get ready to apply the new value, and subtract the old one. (Negative values become positive)

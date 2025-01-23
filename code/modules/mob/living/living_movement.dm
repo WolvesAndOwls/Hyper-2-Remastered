@@ -22,9 +22,9 @@
 		mod = CONFIG_GET(number/movedelay/walk_delay)
 	else
 		//mod = CONFIG_GET(number/movedelay/run_delay)
-		mod = 0.4
+		mod = 0.7
 	if(!isnum(mod))
-		mod = 0.4
+		mod = 0.7
 	add_movespeed_modifier(MOVESPEED_ID_MOB_WALK_RUN_CONFIG_SPEED, TRUE, 100, override = TRUE, multiplicative_slowdown = mod)
 
 /mob/living/proc/update_turf_movespeed(turf/open/T)

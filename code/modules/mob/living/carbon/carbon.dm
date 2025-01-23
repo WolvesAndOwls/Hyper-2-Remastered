@@ -1124,3 +1124,4 @@
 	if(combatmode)
 		toggle_combat_mode(TRUE, TRUE)
 	return ..()
+

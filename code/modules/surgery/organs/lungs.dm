@@ -542,6 +542,30 @@
 	heat_level_1_threshold = 400 // better adapted for heat, obv. Lavaland standard is 300
 	heat_level_2_threshold = 600 // up 200 from level 1, 1000 is silly but w/e for level 3
 
+/obj/item/organ/lungs/ashwalker/alpha
+	name = "alpha ash lungs"
+	desc = "blacked lungs that are significantly larger than most recovered from lavaland, a match for cybernetics in their efficiency."
+	icon_state = "lungs-ll"
+	safe_oxygen_min = 0	//able to handle much thinner oxygen, something something ash storm adaptation
+	safe_oxygen_max = 50 // Air standard is 22kpA of O2, LL is 14kpA
+	safe_nitro_max = 200 // Air standard is 82kpA of N2, LL is 23kpA
+	safe_co2_max = 50
+	safe_toxins_max = 50
+	SA_para_min = 25 //Sleeping agent
+	SA_sleep_min = 50 //Sleeping agent
+	BZ_trip_balls_min = 50 //BZ gas
+	gas_stimulation_min = 0.05 //Nitryl and Stimulum
+
+	cold_level_1_threshold = 200 
+	cold_level_2_threshold = 100
+	cold_level_3_threshold = 20
+
+	heat_level_1_threshold = 600 // better adapted for heat, obv. Lavaland standard is 300
+	heat_level_2_threshold = 900 // up 200 from level 1, 1000 is silly but w/e for level 3
+	heat_level_3_threshold = 1500 
+
+	maxHealth = 2500
+
 /obj/item/organ/lungs/slime
 	name = "vacuole"
 	desc = "A large organelle designed to store oxygen and other important gasses."

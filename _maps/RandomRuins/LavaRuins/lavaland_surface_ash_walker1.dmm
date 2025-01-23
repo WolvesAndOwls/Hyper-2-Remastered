@@ -86,12 +86,14 @@
 /obj/structure/stone_tile/surrounding_tile{
 	dir = 8
 	},
+/obj/effect/decal/cleanable/blood,
 /turf/open/lava/smooth{
 	initial_gas_mix = "o2=14;n2=23;TEMP=300"
 	},
 /area/ruin/unpowered/ash_walkers)
 "ao" = (
 /obj/structure/stone_tile/block/cracked,
+/obj/effect/decal/cleanable/blood,
 /turf/open/lava/smooth{
 	initial_gas_mix = "o2=14;n2=23;TEMP=300"
 	},
@@ -161,6 +163,8 @@
 /obj/structure/stone_tile{
 	dir = 4
 	},
+/obj/effect/decal/cleanable/blood,
+/obj/effect/decal/cleanable/blood,
 /turf/open/indestructible/boss,
 /area/ruin/unpowered/ash_walkers)
 "aw" = (
@@ -182,6 +186,7 @@
 /obj/structure/stone_tile{
 	dir = 4
 	},
+/obj/effect/decal/cleanable/blood,
 /turf/open/indestructible/boss,
 /area/ruin/unpowered/ash_walkers)
 "ay" = (
@@ -1429,6 +1434,21 @@
 /obj/item/cultivator,
 /turf/open/floor/plating/asteroid/basalt/lava_land_surface,
 /area/lavaland/surface/outdoors)
+"Op" = (
+/obj/effect/mob_spawn/human/ash_walker/alpha,
+/obj/structure/stone_tile{
+	dir = 4
+	},
+/obj/structure/stone_tile{
+	dir = 8
+	},
+/obj/structure/stone_tile{
+	dir = 1
+	},
+/obj/structure/stone_tile,
+/obj/effect/decal/cleanable/blood,
+/turf/open/indestructible/boss,
+/area/ruin/unpowered/ash_walkers)
 
 (1,1,1) = {"
 aa
@@ -1720,7 +1740,7 @@ ah
 ae
 ak
 ak
-av
+aw
 an
 aD
 aJ
@@ -1741,8 +1761,8 @@ cO
 (15,1,1) = {"
 ac
 ak
-ak
-aw
+Op
+av
 ao
 aH
 aL

@@ -268,17 +268,16 @@
 	tastes = list("fudge" = 1, "metal" = 1)
 	bitesize = 0.1
 	foodtype = JUNKFOOD | SUGAR
-	
-	var is_wrapped = 1
+	var/is_wrapped = 1
 
-/obj/item/reagent_containers/food/snacks/choccogun/afterattack(user)
+/obj/item/reagent_containers/food/snacks/choccogun/afterattack(user, is_wrapped)
 	if (is_wrapped == 1)
 		to_chat(user, "<span class='danger'>*click*</span>")
 		playsound(src, "gun_dry_fire", 30, 1)
 	else //no more clicking chocolate for you. <3
 		return
 
-/obj/item/reagent_containers/food/snacks/choccogun/attack_self(mob/user)
+/obj/item/reagent_containers/food/snacks/choccogun/attack_self(mob/user, is_wrapped)
 	if (is_wrapped == 1)
 		to_chat(user, "You look at the gun and find it's made of chocolate, unwrapping it.")
 		

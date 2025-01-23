@@ -19,7 +19,7 @@
 
 //organ defines
 #define COCK_SIZE_MIN		1
-#define COCK_SIZE_MAX		36
+#define COCK_SIZE_MAX		99999999
 
 #define COCK_GIRTH_RATIO_MAX		0.42
 #define COCK_GIRTH_RATIO_DEF		0.25
@@ -72,8 +72,8 @@
 #define BREASTS_SIZE_IMPOSSIBLE		30
 
 //Bodysize Limits
-#define MIN_BODYSIZE		25
-#define MAX_BODYSIZE		200
+#define MIN_BODYSIZE		5
+#define MAX_BODYSIZE		1500
 
 #define BREASTS_SIZE_MIN 	BREASTS_SIZE_A
 #define BREASTS_SIZE_DEF	BREASTS_SIZE_D

@@ -523,7 +523,11 @@
 /area/ruin/unpowered/xenonest)
 "kp" = (
 /obj/structure/alien/weeds,
-/obj/item/dnainjector/giant,
+/obj/item/reagent_containers/syringe/alien,
+/obj/item/reagent_containers/syringe/alien,
+/obj/item/reagent_containers/syringe/alien,
+/obj/item/reagent_containers/syringe/alien,
+/obj/item/reagent_containers/syringe/alien,
 /turf/open/floor/plating/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/xenonest)
 "lG" = (
@@ -532,7 +536,7 @@
 /turf/open/floor/plating/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/xenonest)
 "pE" = (
-/obj/effect/mob_spawn/alien/corpse/humanoid/queen,
+/mob/living/simple_animal/hostile/alien/queen/large,
 /turf/open/floor/plating/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/xenonest)
 "yf" = (

@@ -279,133 +279,14 @@
 			M.reagents.remove_reagent(type, 5)
 			P = nP
 	if(H.client?.prefs.cit_toggles & PENIS_ENLARGEMENT)
-		P.cached_length = P.cached_length + 0.3
+		P.cached_length = P.cached_length + 0.5
 		//Hyper change// Increase ball size too
-		T.size = T.size + 0.3
+		T.size = T.size + 0.5
 		T.update() //Hyper change - Make the ball size update
 		P.update()
 	..()
 
 /datum/reagent/fermi/penis_enlarger/overdose_process(mob/living/carbon/M) //Turns you into a male if female and ODing, doesn't touch nonbinary and object genders.
-	if(!(M.client?.prefs.cit_toggles & FORCED_MASC))
-		//var/obj/item/organ/liver/L = M.getorganslot("liver")
-		//L.swelling+= 0.05 //HYPER CHANGE: See comment in /breast_enlarger/on_mob_life()
-		return..()
-
-	var/obj/item/organ/genital/breasts/B = M.getorganslot("breasts")
-	var/obj/item/organ/genital/testicles/T = M.getorganslot("testicles")
-	var/obj/item/organ/genital/vagina/V = M.getorganslot("vagina")
-	var/obj/item/organ/genital/womb/W = M.getorganslot("womb")
-
-	if(M.gender == FEMALE)
-		M.gender = MALE
-		M.visible_message("<span class='boldnotice'>[M] suddenly looks more masculine!</span>", "<span class='boldwarning'>You suddenly feel more masculine!</span>")
-
-	if(B)
-		B.cached_size = B.cached_size - 0.05
-		B.update()
-	if(V)
-		V.Remove(M)
-	if(W)
-		W.Remove(M)
-	if(!T)
-		var/obj/item/organ/genital/testicles/nT = new
-		nT.Insert(M)
-		T = nT
-	..()
-
-
-/datum/reagent/fermi/penis_enlarger/potent // Due to popular demand...!
-	name = "Potent Incubus draft"
-	description = "A volatile collodial mixture derived from various masculine solutions that encourages a larger gentleman's package via a potent testosterone mix, formula derived from a collaboration from Fermichem  and Doctor Ronald Hyatt, who is well known for his phallus palace." //The toxic masculinity thing is a joke because I thought it would be funny to include it in the reagents, but I don't think many would find it funny? dumb
-	color = "#888888" // This is greyish..?
-	taste_description = "rich aphrodisiac and a hint of dragon powder"
-	overdose_threshold = 9999 //ODing makes you male and removes female genitals
-	metabolization_rate = 0
-	can_synth = TRUE
-
-/datum/reagent/fermi/penis_enlarger/potent/on_mob_add(mob/living/carbon/M)
-	. = ..()
-	if(iswendigo(M))
-		return
-	if(!ishuman(M)) //Just monkeying around.
-		if(volume >= 15) //to prevent monkey penis farms
-			var/turf/T = get_turf(M)
-			var/obj/item/organ/genital/penis/P = new /obj/item/organ/genital/penis(T)
-			var/list/seen = viewers(8, T)
-			for(var/mob/S in seen)
-				to_chat(S, "<span class='warning'>A penis suddenly flies out of the [M]!</b></span>")
-			var/T2 = get_random_station_turf()
-			M.adjustBruteLoss(25)
-			M.Knockdown(50)
-			M.Stun(50)
-			P.throw_at(T2, 8, 1)
-		M.reagents.del_reagent(type)
-		return
-	var/mob/living/carbon/human/H = M
-	H.genital_override = TRUE
-	var/obj/item/organ/genital/penis/P = M.getorganslot("penis")
-	if(!P)
-		H.emergent_genital_call()
-		return
-	P.prev_length = P.length
-	P.cached_length = P.length
-
-/datum/reagent/fermi/penis_enlarger/potent/on_mob_life(mob/living/carbon/M) //Increases penis size infinitely.
-	if(!ishuman(M))
-		return
-
-	var/mob/living/carbon/human/H = M
-	var/obj/item/organ/genital/testicles/T = M.getorganslot("testicles") //Hyper Change, testicles come first so the dick isn't hidden behind the testicles layer
-	var/obj/item/organ/genital/penis/P = M.getorganslot("penis")
-	if(!T)//Hyper change// Adds testicles if there are none.
-		if(!(H.client?.prefs.cit_toggles & PENIS_ENLARGEMENT))
-			var/obj/item/organ/liver/L = M.getorganslot("liver")
-			if(L)
-				//L.swelling+= 0.05 //HYPER CHANGE: See comment in /breast_enlarger/on_mob_life()
-				return..()
-			else
-				M.adjustToxLoss(1)
-				return..()
-
-		//otherwise proceed as normal
-		var/obj/item/organ/genital/testicles/nT = new
-		nT.Insert(M)
-		if(nT)
-			nT.size = BALLS_SIZE_MIN
-			to_chat(M, "<span class='warning'>Your groin feels warm, as you feel two sensitive orbs taking shape below.</b></span>")
-			nT.cached_size = 1
-			nT.sack_size = BALLS_SACK_SIZE_DEF
-			T = nT
-	if(!P)
-		if(!(H.client?.prefs.cit_toggles & PENIS_ENLARGEMENT))
-			var/obj/item/organ/liver/L = M.getorganslot("liver")
-			if(L)
-				//L.swelling+= 0.05 //HYPER CHANGE: See comment in /breast_enlarger/on_mob_life()
-				return..()
-			else
-				M.adjustToxLoss(1)
-				return..()
-
-		//otherwise proceed as normal
-		var/obj/item/organ/genital/penis/nP = new
-		nP.Insert(M)
-		if(nP)
-			nP.length = 1
-			to_chat(M, "<span class='warning'>Your groin feels warm, as you feel a newly forming bulge down below.</b></span>")
-			nP.cached_length = 1
-			nP.prev_length = 1
-			M.reagents.remove_reagent(type, 5)
-			P = nP
-	if(H.client?.prefs.cit_toggles & PENIS_ENLARGEMENT)
-		P.cached_length = P.cached_length + 3
-		//Hyper change// Increase ball size too
-		T.size = T.size + 3
-		T.update() //Hyper change - Make the ball size update
-		P.update()
-	..()
-
-/datum/reagent/fermi/penis_enlarger/potent/overdose_process(mob/living/carbon/M) //Turns you into a male if female and ODing, doesn't touch nonbinary and object genders.
 	if(!(M.client?.prefs.cit_toggles & FORCED_MASC))
 		//var/obj/item/organ/liver/L = M.getorganslot("liver")
 		//L.swelling+= 0.05 //HYPER CHANGE: See comment in /breast_enlarger/on_mob_life()

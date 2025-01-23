@@ -93,7 +93,7 @@
 	id = "ashlizard"
 	limbs_id = "lizard"
 	species_traits = list(MUTCOLORS,EYECOLOR,LIPS,DIGITIGRADE)
-	inherent_traits = list(TRAIT_NOGUNS)
+	inherent_traits = list(TRAIT_RESISTHEAT)
 	mutantlungs = /obj/item/organ/lungs/ashwalker
 	burnmod = 0.9
 	brutemod = 0.9
@@ -105,17 +105,19 @@
 	return ..()
 
 /datum/species/lizard/ashwalker/alpha
-	name = "Alpha Ash Walker"
+	name = "Alpha Ash Walker" 
 	id = "ashlizardalpha"
 	limbs_id = "lizard"
 	species_traits = list(MUTCOLORS,EYECOLOR,LIPS,DIGITIGRADE)
-	inherent_traits = list(TRAIT_RADIMMUNE,TRAIT_RESISTHEAT,TRAIT_PIERCEIMMUNE)
-	mutantlungs = /obj/item/organ/lungs/cybernetic/upgraded
-	burnmod = 0.2				//Immensely hard to kill
-	brutemod = 0.2
+	inherent_traits = list(TRAIT_RADRESONANCE,TRAIT_VIRUSIMMUNE,TRAIT_RADIMMUNE,TRAIT_RESISTHEAT,TRAIT_PIERCEIMMUNE,TRAIT_RESISTHIGHPRESSURE,TRAIT_RESISTLOWPRESSURE,TRAIT_ALCOHOL_TOLERANCE,TRAIT_TOUGH,TRAIT_NODISMEMBER,TRAIT_STUNIMMUNE,TRAIT_EXEMPT_HEALTH_EVENTS)
+	mutantlungs = /obj/item/organ/lungs/ashwalker/alpha
+	mutant_heart = /obj/item/organ/heart/ashlizard/alpha
+	burnmod = 0.7				//Immensely hard to kill
+	brutemod = 0.7
 	coldmod = 0.7
-	punchdamagelow = 30				//Hits like a truck
+	punchdamagelow = 30
 	punchdamagehigh = 50
+	punchstunthreshold = 35 //Extremely high stun chance
 	armor = 50						//Hard to kill
 
 /datum/species/lizard/ashwalker/alpha/on_species_gain(mob/living/carbon/C, datum/species/old_species)
@@ -138,3 +140,54 @@
 		C.dna.features["tail_lizard"] = "Smooth"
 		C.update_body()
 	return ..()
+
+//DEATHCLAW DEATHCLAW DEATHCLAW
+
+/datum/species/lizard/deathclaw/glowing //More powerful deathclaw ahead!!!
+	name = "Glowing Deathclaw"
+	id = "glowdeathclaw"
+	limbs_id = "lizard"
+	species_traits = list(MUTCOLORS,EYECOLOR,LIPS,DIGITIGRADE)
+	inherent_traits = list(TRAIT_RESISTHEAT,TRAIT_RESISTCOLD,TRAIT_RADRESONANCE,TRAIT_VIRUSIMMUNE,TRAIT_PIERCEIMMUNE) //Absorbs radiation to heal faster. Don't let it get near a reactor
+	mutantlungs = /obj/item/organ/lungs/ashwalker/alpha
+	burnmod = 0 //Radiation is hot, these guys are walking nuclear reactors
+	brutemod = 0.3 //Good luck
+	coldmod = 0.5 //Hot enough to boil the air around them
+	punchdamagelow = 50
+	punchdamagehigh = 75 //It's a deathclaw, it's gonna hurt
+	armor = 50 //Even thicker skinned
+
+/datum/species/lizard/deathclaw/glowing/spec_life(mob/living/carbon/human/H)
+	if(H.radiation >= 1)
+		H.heal_overall_damage(2,2)
+		H.adjustToxLoss(-2)
+		H.adjustOxyLoss(-2)
+		H.adjustCloneLoss(-2)
+		H.adjustStaminaLoss(-100) //Unstoppable when irradiated
+		H.resize(H.size_multiplier+0.05) //Grows when nuked
+		H.radiation -= 100
+	else
+		return ..()
+
+//Normal Deathclaws below (Still not even attempted to balance)
+
+/datum/species/lizard/deathclaw
+	name = "Deathclaw"
+	id = "deathclaw"
+	limbs_id = "lizard"
+	species_traits = list(MUTCOLORS,EYECOLOR,LIPS,DIGITIGRADE)
+	inherent_traits = list(TRAIT_RESISTHEAT,TRAIT_RESISTCOLD,TRAIT_RADRESONANCE,TRAIT_RADIMMUNE,TRAIT_VIRUSIMMUNE,TRAIT_PIERCEIMMUNE) //Absorbs radiation to heal faster. Don't let it get near a reactor
+	mutantlungs = /obj/item/organ/lungs/ashwalker/alpha
+	burnmod = 0.5 //Can't light them on fire
+	brutemod = 0.5 //Skin too thick for normal weapons to work
+	coldmod = 0.8 //Best chance you got, good luck
+	punchdamagelow = 50
+	punchdamagehigh = 50 //It's a deathclaw, it's gonna hurt
+	armor = 35 //Super-thick skinned
+
+/datum/species/lizard/deathclaw/spec_life(mob/living/carbon/human/H) //Slowly heals from all injuries on their own. 
+	if(H.stat == DEAD)
+		return
+	H.heal_overall_damage(1,1)
+	H.adjustToxLoss(-1)
+	H.adjustOxyLoss(-1)

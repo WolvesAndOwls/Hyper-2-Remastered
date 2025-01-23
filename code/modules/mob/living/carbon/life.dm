@@ -636,6 +636,14 @@ GLOBAL_LIST_INIT(ballmer_windows_me_msg, list("Yo man, what if, we like, uh, put
 	if(hallucination)
 		handle_hallucinations()
 
+	if(radiation >= 1)
+		if(HAS_TRAIT(src, TRAIT_RADIOTROPIC_SHRINK))
+			resize(size_multiplier-0.02)
+			radiation -= 20
+		if(HAS_TRAIT(src, TRAIT_RADIOTROPIC_GROWTH))
+			resize(size_multiplier+0.02)
+			radiation -= 20
+
 	if(drunkenness)
 		drunkenness = max(drunkenness - (drunkenness * 0.04), 0)
 		if(drunkenness >= 6)

@@ -79,7 +79,32 @@
 	if(!ishuman(M))
 		return..()
 	if(M.size_multiplier < RESIZE_MACRO)
-		M.resize(M.size_multiplier+0.025)
+		M.resize(M.size_multiplier+0.1)
+		M.visible_message("<span class='danger'>[pick("[M] grows!", "[M] expands in size!", "[M] pushes outwards in stature!")]</span>", "<span class='danger'>[pick("You feel your body fighting for space and growing!", "The world contracts inwards in every direction!", "You feel your muscles expand, and your surroundings shrink!")]</span>")
+	..()
+	. = 1
+
+//POTENT PROSPA
+/datum/reagent/supergrowthchem
+	name = "Potent Prospacillin"
+	description = "A condensed and far more potent concoction size-altering liquids, this one appears to increase cell volume."
+	color = "#E70C0C"
+	taste_description = "a sharp, fiery and intoxicating flavour"
+	overdose_threshold = 1500
+	metabolization_rate = 0.1
+	can_synth = FALSE
+
+//Growthchem effects
+/datum/reagent/supergrowthchem/on_mob_add(mob/living/carbon/M)
+	. = ..()
+	if(ishuman(M))
+		log_game("SIZECODE: [M] ckey: [M.key] has ingested growthchem.")
+
+/datum/reagent/supergrowthchem/on_mob_life(mob/living/carbon/M)
+	if(!ishuman(M))
+		return..()
+	if(M.size_multiplier < RESIZE_MACRO)
+		M.resize(M.size_multiplier+0.3)
 		M.visible_message("<span class='danger'>[pick("[M] grows!", "[M] expands in size!", "[M] pushes outwards in stature!")]</span>", "<span class='danger'>[pick("You feel your body fighting for space and growing!", "The world contracts inwards in every direction!", "You feel your muscles expand, and your surroundings shrink!")]</span>")
 	..()
 	. = 1
@@ -128,7 +153,7 @@
 	if(!ishuman(M))
 		return..()
 	if(M.size_multiplier > RESIZE_MICRO)
-		M.resize(M.size_multiplier-0.025)
+		M.resize(M.size_multiplier-0.1)
 		M.visible_message("<span class='danger'>[pick("[M] shrinks down!", "[M] dwindles in size!", "[M] compresses down!")]</span>", "<span class='danger'>[pick("You feel your body compressing in size!", "The world pushes outwards in every direction!", "You feel your muscles contract, and your surroundings grow!")]</span>")
 	..()
 	. = 1

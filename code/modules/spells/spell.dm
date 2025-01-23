@@ -545,3 +545,27 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 	user.visible_message("<span class='warning'>A wreath of gentle light passes over [user]!</span>", "<span class='notice'>You wreath yourself in healing light!</span>")
 	user.adjustBruteLoss(-10)
 	user.adjustFireLoss(-10)
+
+//Nuclear Surge Spell
+
+/obj/effect/proc_holder/spell/self/Nuclear_Surge
+	name = "Radioactive Surge"
+	desc = "A massive surge of radioactivity throughout your body."
+	human_req = 1
+	clothes_req = 0
+	charge_max = 100
+	cooldown_min = 50
+	invocation = "GRRRRRRRRROOOOOOOOOWWWWWWWWWWWW!!"
+	invocation_type = "shout"
+	school = "restoration"
+	sound = 'sound/magic/staff_healing.ogg'
+
+/obj/effect/proc_holder/spell/self/Nuclear_Surge/cast(mob/living/carbon/human/user)
+	user.visible_message("<span class='warning'>A wave of intense heat radiates off [user]!</span>", "<span class='notice'>You feel your body quake as the air around you grows warm.</span>")
+	radiation_pulse(user, 5000)
+	user.adjustBruteLoss(-1000)
+	user.adjustFireLoss(-1000)
+	user.adjustToxLoss(-1000)
+	user.adjust_fire_stacks(-1000)
+	user.adjustOxyLoss(-1000)
+	user.reagents.add_reagent_list(list(/datum/reagent/growthchem = 0.5, /datum/reagent/fermi/penis_enlarger = 10))

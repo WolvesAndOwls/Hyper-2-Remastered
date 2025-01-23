@@ -1,6 +1,27 @@
 //predominantly positive traits
 //this file is named weirdly so that positive traits are listed above negative ones
 
+/datum/quirk/radiotropic_growth
+	name = "Radiotropic Growth"
+	desc = "Your body undergoes growth when exposed to radiation"
+	value = 1
+	category = CATEGORY_BODY
+	mob_trait = TRAIT_RADIOTROPIC_GROWTH
+	gain_text = "<span class='notice'>You feel strangely attracted to radiation"
+	lose_text = "<span class='danger'>You feel adverse to radiation again"
+	medical_record_text = "Patient appears to undergo rapid physical growth when exposed to radiation"
+
+/datum/quirk/radiotropic_shrink
+	name = "Radiotropic Shrinking"
+	desc = "Your body shrinks when exposed to radiation"
+	value = 1
+	category = CATEGORY_BODY
+	mob_trait = TRAIT_RADIOTROPIC_SHRINK
+	gain_text = "<span class='notice'>You feel strangely attracted to radiation"
+	lose_text = "<span class='danger'>You feel adverse to radiation again"
+	medical_record_text = "Patient appears to undergo physical shrinking when exposed to radiation"
+
+
 /datum/quirk/alcohol_tolerance
 	name = "Alcohol Tolerance"
 	desc = "You become drunk more slowly and suffer fewer drawbacks from alcohol."
