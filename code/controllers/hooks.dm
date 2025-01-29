@@ -11,9 +11,9 @@
  * @code
 /hook/foo/proc/bar()
 	if(1)
-		return 1 //Sucessful
+		return TRUE //Sucessful
 	else
-		return 0 //Error, or runtime.
+		return FALSE //Error, or runtime.
  * @endcode
  * All hooks must return nonzero on success, as runtimes will force return null.
  */
@@ -27,13 +27,11 @@
 	var/hook_path = text2path("/hook/[hook]")
 	if(!hook_path)
 		CRASH("Invalid hook '/hook/[hook]' called.")
-		return 0
 
-	var/caller = new hook_path
+	var/caller_var = new hook_path
 	var/status = 1
 	for(var/P in typesof("[hook_path]/proc"))
-		if(!call(caller, P)(arglist(args)))
+		if(!call(caller_var, P)(arglist(args)))
 			CRASH("Hook '[P]' failed or runtimed.")
-			status = 0
 
 	return status
